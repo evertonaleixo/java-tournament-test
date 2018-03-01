@@ -46,4 +46,8 @@ public class ToDoList {
     public Set<ToDoEntry> getEntries() {
         return entries;
     }
+    
+    public void addEntry(ToDoEntry element) {
+    		this.entries.add(element);
+    }
 }
