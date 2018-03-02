@@ -109,7 +109,7 @@ public class ToDoListApiController {
      * Return 400 if specified entry ID does not belong to the list.
      * @return 
      */
-    @DeleteMapping("/{listId}/{entryId}")
+    @DeleteMapping("/{entryId}/{listId}")
     public ToDoEntry deleteEntry(@PathVariable Long listId, @PathVariable Long entryId) {
         ToDoList list = ensureExists(listRepository.findOne(listId));
         ToDoEntry entry = ensureExists(entryRepository.findOne(entryId));
