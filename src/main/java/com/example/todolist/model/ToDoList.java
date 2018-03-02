@@ -2,6 +2,7 @@ package com.example.todolist.model;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -49,5 +50,9 @@ public class ToDoList {
     
     public void addEntry(ToDoEntry element) {
     		this.entries.add(element);
+    }
+    
+    public void setId(Long id) {
+    		this.id = id;
     }
 }
