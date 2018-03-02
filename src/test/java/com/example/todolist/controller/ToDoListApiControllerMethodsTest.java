@@ -123,6 +123,23 @@ public class ToDoListApiControllerMethodsTest {
 
 		toDoListApiController.createEntry(1L, entry);
 	}
+	
+	@Test(expected = DataIntegrationViolationException.class)
+	public void createEntryFailDataIntegrationTest() {
+		ToDoEntry entry = new ToDoEntry();
+		String desc = "";
+		for(int i=0 ; i<16001 ; i++)
+			desc += ".";
+		entry.setDescription(desc);
+
+		ToDoList list = new ToDoList();
+		list.setName("list 1");
+
+		when(listRepository.findOne(1L)).thenReturn(list);
+		when(entryRepository.save(entry)).thenReturn(entry);
+
+		toDoListApiController.createEntry(1L, entry);
+	}
 
 	@Test
 	public void deleteListOkTest() {

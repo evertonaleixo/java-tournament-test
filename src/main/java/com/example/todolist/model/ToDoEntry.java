@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -29,6 +30,7 @@ public class ToDoEntry {
 	private ToDoList list;
 
 	@NotNull
+	@Size(max = 16000, message = "Exceed limit lenght")
 	private String description;
 
 	public Long getId() {

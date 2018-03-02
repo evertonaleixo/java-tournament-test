@@ -86,6 +86,9 @@ public class ToDoListApiController {
     @PostMapping("/{listId}")
     @ResponseStatus(HttpStatus.CREATED)
     public ToDoEntry createEntry(@PathVariable Long listId, @RequestBody @Valid ToDoEntry entry) {
+    		if(entry.getDescription().length()>16000) {
+    			throw new DataIntegrationViolationException();
+    		}
         ToDoList list = ensureExists(listRepository.findOne(listId));
         entry.setList(list);
         ToDoEntry saved = entryRepository.save(entry);

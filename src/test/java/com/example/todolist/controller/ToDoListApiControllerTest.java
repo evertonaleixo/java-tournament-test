@@ -235,7 +235,7 @@ public class ToDoListApiControllerTest {
 				.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk());
 		
-		mvc.perform(delete("/api/2/1")
+		mvc.perform(delete("/api/1/2")
 				.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isNotFound());
 	}
@@ -249,7 +249,7 @@ public class ToDoListApiControllerTest {
 				.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk());
 		
-		mvc.perform(delete("/api/1/2")
+		mvc.perform(delete("/api/2/1")
 				.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isNotFound());
 	}
@@ -263,7 +263,7 @@ public class ToDoListApiControllerTest {
 				.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk());
 		
-		mvc.perform(delete("/api/1/3")
+		mvc.perform(delete("/api/3/1")
 				.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isBadRequest());
 	}
